@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    
+    <class name="ManyToMany.Course" table="manytomany_courses">
+        <id name="courseId" column="course_id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="cName" column="course_name"  type="string" />
+        <property name="duration" column="course_duration"  type="int" />
+        <set name="students" table="student_courses" cascade="all" >
+            <key column="course_id"></key>
+            <many-to-many class="ManyToMany.Student" column="student_id"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

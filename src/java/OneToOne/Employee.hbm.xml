@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="OneToOne.Employee" table="onetoone_employee">
+        <id name="empId" column="emp_id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="name" column="emp_name"  type="string" />
+        <property name="salary" column="emp_salary"  type="float" />
+        
+        <one-to-one name="address" cascade="all"></one-to-one>
+    </class>
+</hibernate-mapping>

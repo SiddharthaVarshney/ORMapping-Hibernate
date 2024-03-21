@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="OneToOne.Address" table="onetoone_address">
+        <id name="addId" column="address_id">
+            <generator class="increment"></generator>
+        </id>
+        <property name="city" column="city"  type="string" />
+        <property name="state" column="state"  type="string" />
+        <property name="country" column="country"  type="string" />
+        
+        <one-to-one name="employee" cascade="all"></one-to-one>
+        
+    </class>
+</hibernate-mapping>
